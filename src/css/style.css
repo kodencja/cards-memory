@@ -1,0 +1,316 @@
+.btn {
+  font: 400 13.3333px Arial;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-indent: 0px;
+  text-shadow: none;
+  letter-spacing: normal;
+  word-spacing: normal;
+  -ms-writing-mode: lr-tb !important;
+      writing-mode: horizontal-tb !important;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  margin: 0;
+  font-family: inherit;
+  overflow: visible;
+  text-transform: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.btn:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.btn:focus,
+.btn.focus {
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.btn.disabled,
+.btn:disabled {
+  opacity: 0.65;
+}
+
+.btn-secondary {
+  background-color: #37666e;
+  margin-top: .5rem;
+}
+
+.form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.form-group {
+  margin: .5rem 1.25rem;
+}
+
+label {
+  color: #F2D164;
+  text-align: center;
+}
+
+.form-control {
+  display: block;
+  width: 125px;
+  height: calc(1.5em + 0.5rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin: .75rem auto;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.form-control-lg {
+  padding: 0.5rem 0.5rem !important;
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #495057;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.container, .board, .score, .replay, .flip-card-inner {
+  text-align: center;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #26282e;
+  color: #209781;
+  font-family: "Lobster", sans-serif;
+  font-size: 28px;
+}
+
+a:link {
+  color: #209781;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #209781;
+}
+
+a:active {
+  color: #209781;
+}
+
+a:hover {
+  color: #e9b64a;
+}
+
+h1 {
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+p {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  padding: 20px 20px;
+}
+
+.board {
+  max-width: 80%;
+  margin: 2rem auto;
+  place-items: center center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(135px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  grid-gap: 12px;
+}
+
+.score {
+  margin: 15px auto;
+  letter-spacing: 2px;
+}
+
+.replay {
+  margin-top: 20px;
+  grid-column: 1 / -1;
+}
+
+.flip-card {
+  width: 135px;
+  height: 135px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+  /* Safari */
+  backface-visibility: hidden;
+}
+
+.board-flags .flip-card-back {
+  background-size: contain;
+  background-position: center;
+  background-color: #3A3A3C;
+}
+
+/* Style the front side */
+.flip-card-front {
+  border: 5px solid #51c8b2;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-filter: brightness(80%);
+          filter: brightness(80%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-image: url("../img/qmark.png");
+}
+
+.flip-card-front:hover {
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+}
+
+/* Style the back side */
+.flip-card-back {
+  border: 5px solid #e9b64a;
+  border-radius: 5px;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@media screen and (min-width: 1013px) {
+  .board {
+    -ms-grid-columns: (minmax(135px, 1fr))[6];
+        grid-template-columns: repeat(6, minmax(135px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1013px) {
+  .board-easy {
+    -ms-grid-columns: (minmax(135px, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(135px, 1fr));
+    max-width: 60%;
+  }
+}
+
+/* @media all and (min-width: 852px) and (max-width: 1012px) { */
+@media screen and (min-width: 691px) and (max-width: 1012px) {
+  .board {
+    -ms-grid-columns: (minmax(135px, 1fr))[4];
+        grid-template-columns: repeat(4, minmax(135px, 1fr));
+  }
+  .hard:last-child {
+    grid-column: span 1 / -2;
+  }
+  .hard:nth-last-child(2) {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2 / 3;
+  }
+}
