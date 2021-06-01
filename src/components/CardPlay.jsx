@@ -8,6 +8,7 @@ import React, {
 import $ from "jquery";
 import Cards from "./Cards";
 import useDrawWithSetRepeating from "./useDrawWithSetRepeating";
+import Footer from "./footer/Footer";
 
 const photoGroup = {
   fruits: [
@@ -100,39 +101,33 @@ function CardPlay() {
   const { turn, topic, repeatNo, start, finished } = state;
 
   useEffect(() => {
-    console.log(cardsRef.current.length);
-  }, [newPhotoArray]);
-
-  useEffect(() => {
-    console.log("RANDOMdraw useEffect");
+    // console.log("RANDOMdraw useEffect");
     randomDraw(repeatNo, photoGroup[`${topic}`]);
   }, [topic, repeatNo]);
 
   useEffect(() => {
-    console.log("centerLastRow CALLED!");
+    // console.log("centerLastRow CALLED!");
     if (start === true) {
-      console.log("centerLastRow drawn === true!");
+      // console.log("centerLastRow drawn === true!");
       centerLastRow();
-      console.log(newPhotoArray);
     }
   }, [start]);
 
   const refresh = (e) => {
-    console.log("Refresh Fn");
+    // console.log("Refresh Fn");
     e.preventDefault();
     pairsLeft.current = 6;
     dispatch({ type: "reset" });
   };
 
   const handleSubmit = (e) => {
-    console.log("handleSubmit Fn");
+    // console.log("handleSubmit Fn");
     e.preventDefault();
     dispatch({ type: "start", value: true });
   };
 
   const handleSelectChange = (e) => {
-    console.log("handleLevelSelectChange Fn");
-    console.log(e.target.value);
+    // console.log("handleLevelSelectChange Fn");
     if (e.target.name === "topic") {
       dispatch({
         type: "topic",
@@ -147,7 +142,7 @@ function CardPlay() {
 
   const addToCardsRef = useCallback(
     (el) => {
-      console.log("addToCardsRef Fn");
+      // console.log("addToCardsRef Fn");
       if (el && !cardsRef.current.includes(el)) {
         cardsRef.current.push(el);
       }
@@ -156,7 +151,7 @@ function CardPlay() {
   );
 
   const hideCards = (arrOfRevealedCards) => {
-    console.log("You hit the ball!");
+    // console.log("You hit the ball!");
     arrOfRevealedCards.forEach((el) => {
       $(el.nextElementSibling).css("opacity", "0");
     });
@@ -164,7 +159,7 @@ function CardPlay() {
     pairsLeft.current--;
     setTimeout(() => {
       displayedCards.current = [];
-      console.log("pairsLeft MINUS");
+      // console.log("pairsLeft MINUS");
       console.log(pairsLeft.current);
       if (pairsLeft.current === 0) {
         dispatch({ type: "start", value: false });
@@ -177,7 +172,7 @@ function CardPlay() {
   };
 
   const restoreCards = (arrOfRevealedCards) => {
-    console.log("You missed!");
+    // console.log("You missed!");
     arrOfRevealedCards.forEach((el) => {
       $(el.offsetParent).css("transform", "rotateY(0deg)");
       $(el.offsetParent).removeClass("revealed");
@@ -191,7 +186,7 @@ function CardPlay() {
   };
 
   const checkIfCardsAreTheSame = (arrOfRevealedCards) => {
-    console.log("checkIfCardsAreTheSame Fn");
+    // console.log("checkIfCardsAreTheSame Fn");
     const bgrImgToCompareWith =
       arrOfRevealedCards[0].nextElementSibling.style.backgroundImage;
     // metoda every() dla tablic przerywa dalsze liczenie, jeżeli już w trakcie sprawdzania zwróci 'false'
@@ -218,8 +213,7 @@ function CardPlay() {
   };
 
   const reverseCard = (e) => {
-    console.log("reverseCard Fn");
-    console.log(topic);
+    // console.log("reverseCard Fn");
     if (
       oneVisible.current === false &&
       !e.target.offsetParent.classList.contains("revealed")
@@ -241,7 +235,7 @@ function CardPlay() {
   };
 
   const centerLastRow = () => {
-    console.log("centerLastRow FUNCTION");
+    // console.log("centerLastRow FUNCTION");
     if (repeatNo === 1) {
       boardRef.current.classList.add("board-easy");
       cardsRef.current.forEach((el) => el.classList.add("easy"));
@@ -254,7 +248,7 @@ function CardPlay() {
       cardsRef.current.forEach((el) => el.classList.add("hero"));
     }
 
-    // apropriatly fit the size of the image to the size of the flag div according to topic
+    //  fit the size of the image appropriately to the size of the flag div according to topic -  it might be useful somehow n the future
     if (topic === "flags") {
       boardRef.current.classList.add("board-flags");
     } else if (topic === "fruits") {
@@ -267,7 +261,7 @@ function CardPlay() {
   };
 
   const clearCenteredClasses = () => {
-    console.log("clearCenteredClasses FUNCT");
+    // console.log("clearCenteredClasses FUNCT");
     boardRef.current.classList.remove(
       "board-easy",
       "board-hard",
@@ -281,15 +275,28 @@ function CardPlay() {
 
   const replayMsg = useMemo(() => {
     if (finished === true) {
-      console.log("replayMsg");
+      // console.log("replayMsg");
       return (
         <div className="replay">
           {turn === newPhotoArray.length / 2 ? (
-            <h1>Excellent!</h1>
+            <p>Wow! Excellent!</p>
+          ) : turn === newPhotoArray.length / 2 + newPhotoArray.length / 6 ? (
+            <p>Fantastic!</p>
+          ) : turn <=
+            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 2 ? (
+            <p>Wonderful!</p>
+          ) : turn <=
+            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 4 ? (
+            <p>Congratulations!</p>
+          ) : turn <=
+            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 8 ? (
+            <p>Good!</p>
+          ) : turn >= (newPhotoArray.length / 2) * 3 ? (
+            <p>Yeah! Keep training!</p>
           ) : (
-            <h1>Congratulations!</h1>
+            <p>Quite well!</p>
           )}
-          <h2>You've won in {turn} turns!</h2>
+          <p className="h4">You've won in {turn} turns!</p>
           <button className="btn btn-secondary" onClick={refresh}>
             One more time?
           </button>
@@ -299,9 +306,9 @@ function CardPlay() {
   }, [finished]);
 
   const settings = (
-    <div className="replay">
+    <div className="settings">
       <div className="form-group">
-        <h2>SETTINGS</h2>
+        <p className="title">SETTINGS</p>
         <form className="form">
           <div className="topic form-group">
             <label htmlFor="topic">Topic</label>
@@ -346,25 +353,28 @@ function CardPlay() {
   );
 
   return (
-    <div className="container">
-      <div className="board" ref={boardRef}>
-        {finished && !start ? (
-          replayMsg
-        ) : !finished && start ? (
-          <Cards
-            onArray={newPhotoArray}
-            onReverseCard={reverseCard}
-            onAddToCardsRef={addToCardsRef}
-            onTopic={topic}
-          />
-        ) : !finished && !start ? (
-          settings
-        ) : (
-          settings
-        )}
+    <div className="main-container">
+      <header className="head">MEMORY CARDS</header>
+      <div className="container">
+        <div className="board" ref={boardRef}>
+          {finished && !start ? (
+            replayMsg
+          ) : !finished && start ? (
+            <Cards
+              onArray={newPhotoArray}
+              onReverseCard={reverseCard}
+              onAddToCardsRef={addToCardsRef}
+              onTopic={topic}
+            />
+          ) : !finished && !start ? (
+            settings
+          ) : (
+            settings
+          )}
+        </div>
       </div>
-      <div style={{ width: "100%" }}></div>
       {!finished && start && <div className="score">Turn no: {turn}</div>}
+      <Footer />
     </div>
   );
 }

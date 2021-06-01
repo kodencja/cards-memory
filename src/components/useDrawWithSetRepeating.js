@@ -1,15 +1,12 @@
 import { useState } from "react";
 
 function useDrawWithSetRepeating() {
-  // console.log("useDrawWithSetRepeating Fn");
+  console.log("useDrawWithSetRepeating Fn");
   const arrayToDrawTo = [];
   const [drawnArray, setDrawnArray] = useState([]);
   // losowanie indeksu
   // random draw with defined number of repetitions
   const randomDraw = (rNo, photoNamesArray) => {
-    console.log("randomDraw in useHOOK");
-    console.log(rNo);
-    console.log(photoNamesArray);
     const arrayToDrawFrom = [...photoNamesArray];
     let arrFromLength = arrayToDrawFrom.length;
 

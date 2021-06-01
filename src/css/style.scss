@@ -1,185 +1,238 @@
-
 @import "./btn";
 @import "./form";
 
-  %align-center {
-    text-align: center;
-  }
+%align-center {
+  text-align: center;
+}
 
 * {
-    box-sizing: border-box;
-  }
-  
-  body {
-    margin: 0;
-    background-color: #26282e; 
-    color: #209781;
-    font-family: "Lobster", sans-serif;
-    font-size: 28px;
-  }
-  
-  a:link {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #26282e;
+  color: #27b49a;
+  font-family: "Lobster", sans-serif;
+  font-size: 28px;
+  position: relative;
+}
+
+a {
+  &:link {
     color: #209781;
     text-decoration: none;
   }
-  a:visited {
+  &:visited {
     color: #209781;
   }
-  a:active {
+  &:active {
     color: #209781;
   }
-  a:hover {
+  &:hover {
     color: #e9b64a;
   }
-  
-  h1 {
-    font-size: 64px;
-    font-weight: 400;
+}
 
-    letter-spacing: 5px;
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: normal;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  justify-self: first baseline;
+  display: grid;
+  grid-template-columns: 120px auto 120px;
+  grid-gap: 10px;
+  grid-template-rows: repeat(auto-fit, minmax(max-content, max-content));
+  grid-template-areas:
+    "head head head"
+    "board board board"
+    "score score score"
+    "footer footer footer";
+}
+
+.container {
+  width: 100%;
+  grid-area: board;
+  grid-column: 1 / -1;
+}
+
+.head {
+  margin-top: 1rem;
+  grid-area: head;
+  grid-column: 1 / -1;
+  justify-self: center;
+  align-self: center;
+  color: rgb(212, 206, 112);
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.board {
+  width: 100%;
+  margin: 1rem auto;
+  padding: 10px 1rem;
+  @extend %align-center;
+  place-items: center center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  grid-gap: 12px;
+}
+
+p.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.score {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  justify-self: center;
+  align-self: end;
+  grid-area: score;
+  grid-column: 1 / -1;
+}
+
+.settings {
+  margin-top: 20px;
+  justify-self: center;
+  grid-column: 2 / -2;
+}
+
+.replay {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  justify-self: center;
+  @extend %align-center;
+  grid-column: 1 / -1;
+  p {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 4px;
     margin-top: 20px;
     margin-bottom: 0px;
   }
-  
-  p {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 25px;
-    letter-spacing: 2px;
-  }
-  
-  .container {
-    @extend %align-center;
-    width: 100%;
-    height: auto;
-    padding: 20px 20px;
-  }
 
-
-%ColInRow4 {
-    grid-template-columns: repeat(4, minmax(135px, 1fr));
+  .h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+  }
 }
-  
-  .board {
-    max-width: 80%;
-    margin: 2rem auto;
-     @extend %align-center;
-    place-items: center center;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-    grid-gap: 12px;
-  }
-  
-  .score {
-    margin: 15px auto;
-     @extend %align-center;
-    letter-spacing: 2px;
-  }
-  
-  .replay {
-    margin-top: 20px;
-     @extend %align-center;
-    grid-column: 1 / -1;
-  }
-  
-  .flip-card {
-    width: 135px;
-    height: 135px;
-    perspective: 1000px;
-  }
-  
-  /* This container is needed to position the front and back side */
-  .flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-     @extend %align-center;
-    -webkit-transition: all 1s;
-    transition: all 1s;
-    transform-style: preserve-3d;
-  }
 
-  /* Position the front and back side */
-  .flip-card-front,
-  .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    // width: 125px;
-    // height: 125px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    
-    -webkit-backface-visibility: hidden; /* Safari */
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+.flip-card {
+  width: 135px;
+  height: 135px;
+  perspective: 1000px;
+}
 
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  @extend %align-center;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  transform-style: preserve-3d;
+}
 
-  .board-flags .flip-card-back {
-    background-size: contain;
-    background-position: center;
-    background-color: #3A3A3C;
-  }
-  
-  /* Style the front side */
-  .flip-card-front {
-    border: 5px solid #51c8b2;
-    border-radius: 5px;
-    cursor: pointer;
-    filter: brightness(80%);
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-image: url('../img/qmark.png');
-   &:hover {
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
-        filter: brightness(100%);
-    } 
-  }
-  
-  /* Style the back side */
-  .flip-card-back {
-    border: 5px solid #e9b64a;
-    border-radius: 5px;
-  
+.board-flags .flip-card-back {
+  background-size: contain;
+  background-position: center;
+  background-color: #3a3a3c;
+}
+
+/* Style the front side */
+.flip-card-front {
+  border: 5px solid #51c8b2;
+  border-radius: 5px;
+  cursor: pointer;
+  filter: brightness(80%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-image: url("../img/qmark.png");
+  &:hover {
     filter: brightness(100%);
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    transform: rotateY(180deg);
+  }
+}
 
+/* Style the back side */
+.flip-card-back {
+  border: 5px solid #e9b64a;
+  border-radius: 5px;
+  filter: brightness(100%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  transform: rotateY(180deg);
+}
+
+//   @media screen and (min-width: 1157px) {
+@media screen and (min-width: 1013px) {
+  .board {
+    grid-template-columns: repeat(6, minmax(135px, 1fr));
   }
 
-  //   @media screen and (min-width: 1157px) {
-    @media screen and (min-width: 1013px) {
-      .board {
-        grid-template-columns: repeat(6, minmax(135px, 1fr));
-      }
+  .board-easy {
+    grid-template-columns: repeat(4, minmax(135px, 1fr));
+    max-width: 60%;
+  }
+}
+
+@media only screen and (min-width: 625px) and (max-width: 1012px) {
+  .board {
+    grid-template-columns: repeat(4, minmax(135px, 1fr));
+  }
+
+  // keep the two tiles in the last row, in "HARD" level, in the middle of the row
+  .hard:last-child {
+    grid-column: -3 / -2;
+  }
+
+  .hard:nth-last-child(2) {
+    grid-column: 2 / 3;
+  }
+}
+
+@media all and (max-width: 390px) {
+  .replay {
+    p {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
-  
-    @media screen and (min-width: 1013px) {
-      .board-easy {
-          grid-template-columns: repeat(4, minmax(135px, 1fr));
-          // @extend %ColInRow4;
-          max-width: 60%;
-        }
+    .h4 {
+      font-size: 1.2rem;
     }
-    
-    /* @media all and (min-width: 852px) and (max-width: 1012px) { */
-    @media screen and (min-width: 691px) and (max-width: 1012px) {
-      .board {
-        grid-template-columns: repeat(4, minmax(135px, 1fr));
-      // @extend %ColInRow4;
-      }
-    
-      .hard:last-child {
-          grid-column: span 1 / -2;
-        }
-      
-        .hard:nth-last-child(2) {
-          grid-column: 2 / 3;
-        }
-    }
-    
-  
+  }
+}
