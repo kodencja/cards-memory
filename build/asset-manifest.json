@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/cards-memory/static/css/main.92d9bd12.chunk.css",
+    "main.js": "/cards-memory/static/js/main.f96ec7cc.chunk.js",
+    "main.js.map": "/cards-memory/static/js/main.f96ec7cc.chunk.js.map",
+    "runtime-main.js": "/cards-memory/static/js/runtime-main.238d8239.js",
+    "runtime-main.js.map": "/cards-memory/static/js/runtime-main.238d8239.js.map",
+    "static/js/2.3a63a4d2.chunk.js": "/cards-memory/static/js/2.3a63a4d2.chunk.js",
+    "static/js/2.3a63a4d2.chunk.js.map": "/cards-memory/static/js/2.3a63a4d2.chunk.js.map",
+    "static/js/3.305e8c98.chunk.js": "/cards-memory/static/js/3.305e8c98.chunk.js",
+    "static/js/3.305e8c98.chunk.js.map": "/cards-memory/static/js/3.305e8c98.chunk.js.map",
+    "static/css/4.5a08c8d5.chunk.css": "/cards-memory/static/css/4.5a08c8d5.chunk.css",
+    "static/js/4.0546b9b9.chunk.js": "/cards-memory/static/js/4.0546b9b9.chunk.js",
+    "static/js/4.0546b9b9.chunk.js.map": "/cards-memory/static/js/4.0546b9b9.chunk.js.map",
+    "static/css/5.c401b182.chunk.css": "/cards-memory/static/css/5.c401b182.chunk.css",
+    "static/js/5.885c675e.chunk.js": "/cards-memory/static/js/5.885c675e.chunk.js",
+    "static/js/5.885c675e.chunk.js.map": "/cards-memory/static/js/5.885c675e.chunk.js.map",
+    "static/css/6.3b2b4752.chunk.css": "/cards-memory/static/css/6.3b2b4752.chunk.css",
+    "static/js/6.ce7d773d.chunk.js": "/cards-memory/static/js/6.ce7d773d.chunk.js",
+    "static/js/6.ce7d773d.chunk.js.map": "/cards-memory/static/js/6.ce7d773d.chunk.js.map",
+    "static/js/7.c85aa369.chunk.js": "/cards-memory/static/js/7.c85aa369.chunk.js",
+    "static/js/7.c85aa369.chunk.js.map": "/cards-memory/static/js/7.c85aa369.chunk.js.map",
+    "static/js/8.2b3b408f.chunk.js": "/cards-memory/static/js/8.2b3b408f.chunk.js",
+    "static/js/8.2b3b408f.chunk.js.map": "/cards-memory/static/js/8.2b3b408f.chunk.js.map",
+    "index.html": "/cards-memory/index.html",
+    "static/css/4.5a08c8d5.chunk.css.map": "/cards-memory/static/css/4.5a08c8d5.chunk.css.map",
+    "static/css/5.c401b182.chunk.css.map": "/cards-memory/static/css/5.c401b182.chunk.css.map",
+    "static/css/6.3b2b4752.chunk.css.map": "/cards-memory/static/css/6.3b2b4752.chunk.css.map",
+    "static/css/main.92d9bd12.chunk.css.map": "/cards-memory/static/css/main.92d9bd12.chunk.css.map",
+    "static/js/2.3a63a4d2.chunk.js.LICENSE.txt": "/cards-memory/static/js/2.3a63a4d2.chunk.js.LICENSE.txt",
+    "static/js/3.305e8c98.chunk.js.LICENSE.txt": "/cards-memory/static/js/3.305e8c98.chunk.js.LICENSE.txt",
+    "static/media/girl1.jpg": "/cards-memory/static/media/girl1.3e0f1466.jpg",
+    "static/media/orange.jpg": "/cards-memory/static/media/orange.fef380f4.jpg",
+    "static/media/woman.jpg": "/cards-memory/static/media/woman.79a01c6c.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.238d8239.js",
+    "static/js/3.305e8c98.chunk.js",
+    "static/css/main.92d9bd12.chunk.css",
+    "static/js/main.f96ec7cc.chunk.js"
+  ]
+}
