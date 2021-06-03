@@ -13,7 +13,7 @@ function areEqual(prevProps, nextProps) {
 function ModalComp() {
   const modalContextValue = useContext(ModalContext);
   const { modalIsOpen, handleModalOpen } = modalContextValue;
-  console.log("ModalComp Fn");
+  // console.log("ModalComp Fn");
 
   return (
     <Modal

@@ -160,7 +160,6 @@ function CardPlay() {
     setTimeout(() => {
       displayedCards.current = [];
       // console.log("pairsLeft MINUS");
-      console.log(pairsLeft.current);
       if (pairsLeft.current === 0) {
         dispatch({ type: "start", value: false });
         dispatch({ type: "finished", value: true });
@@ -234,6 +233,7 @@ function CardPlay() {
     }
   };
 
+  // needed in "hard" level with 18 tiles
   const centerLastRow = () => {
     // console.log("centerLastRow FUNCTION");
     if (repeatNo === 1) {

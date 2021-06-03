@@ -8,7 +8,7 @@ export const ModalContext = React.createContext();
 function Footer() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  console.log("Footer Comp.");
+  // console.log("Footer Comp.");
 
   return (
     <footer className="down-buttons">

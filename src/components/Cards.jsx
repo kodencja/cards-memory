@@ -5,7 +5,7 @@ function areEqual(prevProps, nextProps) {
 }
 
 function Cards({ onArray, onReverseCard, onAddToCardsRef, onTopic }) {
-  console.log("Cards Comp.");
+  // console.log("Cards Comp.");
 
   // load background-image in flip-card-back dynamically
   const cardsDivs = onArray.map((photoName, ind) => {

@@ -5,7 +5,7 @@ import("./css/modalContent.css");
 function ModalContent() {
   const modalContextValue = useContext(ModalContext);
   const { handleModalOpen } = modalContextValue;
-  console.log("ModalContent Fn");
+  // console.log("ModalContent Fn");
 
   return (
     <>
@@ -29,9 +29,10 @@ function ModalContent() {
             </b>{" "}
             and <b>useEffect</b>. Other React libraries embrace:{" "}
             <b>createContext, memo, react-modal</b> as well as{" "}
-            <b>a custom hook</b>, called "<b>useDrawWithSetRepeating</b>"" to
-            draw a random order of a given photo array. The page layout is built
-            with <b>CSS GRID</b>, while stylesheets are written in <b>SCSS</b>.
+            <b>my own custom hook</b>, called "<b>useDrawWithSetRepeating</b>""
+            to draw a random order of a given photo array. The page layout is
+            built with <b>CSS GRID</b>, while stylesheets are written in{" "}
+            <b>SCSS</b>.
             <br />
             &nbsp;&nbsp;&nbsp;Images in the cards are loaded dynamically with no
             need of separate components to each different photo topic. <br />

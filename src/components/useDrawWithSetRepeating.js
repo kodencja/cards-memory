@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function useDrawWithSetRepeating() {
-  console.log("useDrawWithSetRepeating Fn");
+  // console.log("useDrawWithSetRepeating Fn");
   const arrayToDrawTo = [];
   const [drawnArray, setDrawnArray] = useState([]);
   // losowanie indeksu
