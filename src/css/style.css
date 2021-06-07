@@ -148,7 +148,12 @@ label {
 
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:after, *:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -193,13 +198,11 @@ h1 {
 .main-container {
   width: 100%;
   min-height: 100vh;
-  -ms-grid-column-align: first baseline;
-      justify-self: first baseline;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 120px auto 120px;
       grid-template-columns: 120px auto 120px;
-  grid-gap: 10px;
+  gap: 10px;
   -ms-grid-rows: (minmax(max-content, max-content))[auto-fit];
       grid-template-rows: repeat(auto-fit, minmax(-webkit-max-content, -webkit-max-content));
       grid-template-rows: repeat(auto-fit, minmax(max-content, max-content));
@@ -241,7 +244,7 @@ h1 {
   display: grid;
   -ms-grid-columns: (minmax(135px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
-  grid-gap: 12px;
+  gap: 12px;
 }
 
 p.title {
@@ -362,7 +365,7 @@ p.title {
           transform: rotateY(180deg);
 }
 
-@media screen and (min-width: 1013px) {
+@media only screen and (max-width: 1536px) and (min-width: 1013px) {
   .board {
     -ms-grid-columns: (minmax(135px, 1fr))[6];
         grid-template-columns: repeat(6, minmax(135px, 1fr));
@@ -370,11 +373,11 @@ p.title {
   .board-easy {
     -ms-grid-columns: (minmax(135px, 1fr))[4];
         grid-template-columns: repeat(4, minmax(135px, 1fr));
-    max-width: 60%;
+    width: 60%;
   }
 }
 
-@media only screen and (min-width: 625px) and (max-width: 1012px) {
+@media only screen and (max-width: 1012px) and (min-width: 625px) {
   .board {
     -ms-grid-columns: (minmax(135px, 1fr))[4];
         grid-template-columns: repeat(4, minmax(135px, 1fr));
