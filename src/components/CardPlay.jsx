@@ -186,12 +186,19 @@ function CardPlay() {
 
   const checkIfCardsAreTheSame = (arrOfRevealedCards) => {
     // console.log("checkIfCardsAreTheSame Fn");
-    const bgrImgToCompareWith =
-      arrOfRevealedCards[0].nextElementSibling.style.backgroundImage;
+    // const imgSrc =
+    // console.dir(arrOfRevealedCards[0].nextElementSibling);
+    // console.log(arrOfRevealedCards[0].nextElementSibling.innerHTML.src);
+    // console.log(arrOfRevealedCards[0].nextElementSibling.lastChild.alt);
+    // const bgrImgToCompareWith =
+    const imgSrcToCompare =
+      arrOfRevealedCards[0].nextElementSibling.lastChild.alt;
+    // arrOfRevealedCards[0].nextElementSibling.style.backgroundImage;
     // metoda every() dla tablic przerywa dalsze liczenie, jeżeli już w trakcie sprawdzania zwróci 'false'
     const areBgrImgTheSame = arrOfRevealedCards.every((el, ind) => {
       return (
-        el.nextElementSibling.style.backgroundImage === bgrImgToCompareWith
+        // el.nextElementSibling.style.backgroundImage === bgrImgToCompareWith
+        el.nextElementSibling.lastChild.alt === imgSrcToCompare
       );
     });
 
@@ -217,6 +224,9 @@ function CardPlay() {
       oneVisible.current === false &&
       !e.target.offsetParent.classList.contains("revealed")
     ) {
+      // console.dir(e.target.nextElementSibling);
+      // console.log(e.target.nextElementSibling.innerHTML.src);
+      // console.log(e.target.nextElementSibling.lastChild.alt);
       if (noOfClickedCards.current < repeatNo) {
         displayedCards.current[noOfClickedCards.current] = e.target;
         $(e.target.offsetParent).css("transform", "rotateY(180deg)");

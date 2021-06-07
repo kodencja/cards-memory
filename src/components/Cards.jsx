@@ -15,13 +15,19 @@ function Cards({ onArray, onReverseCard, onAddToCardsRef, onTopic }) {
           <div className="flip-card-front"></div>
           <div
             className="flip-card-back"
-            style={{
-              backgroundImage:
-                "url(" +
-                require(`../img/${onTopic}/${photoName}`).default +
-                ")",
-            }}
-          ></div>
+            // style={{
+            //   backgroundImage:
+            //     "url(" +
+            //     require(`../img/${onTopic}/${photoName}`).default +
+            //     ")",
+            // }}
+          >
+            <img
+              alt={photoName}
+              src={require(`../img/${onTopic}/${photoName}`).default}
+              style={{ height: "auto", width: "100%", objectFit: "contain" }}
+            />
+          </div>
         </div>
       </div>
     );

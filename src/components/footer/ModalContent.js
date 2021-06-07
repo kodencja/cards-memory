@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ModalContext } from "./Footer";
-import("./css/modalContent.css");
+import("../../css/modalContent.css");
 
 function ModalContent() {
   const modalContextValue = useContext(ModalContext);

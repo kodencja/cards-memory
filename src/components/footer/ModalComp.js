@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Modal from "react-modal";
 import { ModalContext } from "./Footer";
 import ModalContent from "./ModalContent";
-import("./css/modalComp.css");
+import("../../css/modalComp.css");
 
 Modal.setAppElement("#root");
 

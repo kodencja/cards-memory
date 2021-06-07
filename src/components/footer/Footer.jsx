@@ -1,5 +1,5 @@
 import React, { useState, lazy, Suspense } from "react";
-import("./css/footer.css");
+import("../../css/footer.css");
 
 const ModalComp = lazy(() => import("./ModalComp"));
 
