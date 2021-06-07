@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/cards-memory/static/css/main.1f1681c3.chunk.css",
+    "main.css": "/cards-memory/static/css/main.772fd5f9.chunk.css",
     "main.js": "/cards-memory/static/js/main.79313bec.chunk.js",
     "main.js.map": "/cards-memory/static/js/main.79313bec.chunk.js.map",
     "runtime-main.js": "/cards-memory/static/js/runtime-main.da1fe6af.js",
@@ -26,7 +26,7 @@
     "static/css/4.3dae2e9c.chunk.css.map": "/cards-memory/static/css/4.3dae2e9c.chunk.css.map",
     "static/css/5.7fa870fb.chunk.css.map": "/cards-memory/static/css/5.7fa870fb.chunk.css.map",
     "static/css/6.208bb1f1.chunk.css.map": "/cards-memory/static/css/6.208bb1f1.chunk.css.map",
-    "static/css/main.1f1681c3.chunk.css.map": "/cards-memory/static/css/main.1f1681c3.chunk.css.map",
+    "static/css/main.772fd5f9.chunk.css.map": "/cards-memory/static/css/main.772fd5f9.chunk.css.map",
     "static/js/2.3a63a4d2.chunk.js.LICENSE.txt": "/cards-memory/static/js/2.3a63a4d2.chunk.js.LICENSE.txt",
     "static/js/3.305e8c98.chunk.js.LICENSE.txt": "/cards-memory/static/js/3.305e8c98.chunk.js.LICENSE.txt",
     "static/media/girl1.jpg": "/cards-memory/static/media/girl1.3e0f1466.jpg",
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.da1fe6af.js",
     "static/js/3.305e8c98.chunk.js",
-    "static/css/main.1f1681c3.chunk.css",
+    "static/css/main.772fd5f9.chunk.css",
     "static/js/main.79313bec.chunk.js"
   ]
 }
