@@ -15,8 +15,7 @@ function useDrawWithSetRepeating() {
       const randomIndex = Math.floor(Math.random() * arrFromLength);
 
       if (
-        arrayToDrawTo.filter((el) => el === arrayToDrawFrom[randomIndex])
-          .length < rNo
+        arrayToDrawTo.filter((el) => el === arrayToDrawFrom[randomIndex]).length < rNo
       ) {
         arrayToDrawTo[n] = arrayToDrawFrom[randomIndex];
         n++;

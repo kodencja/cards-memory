@@ -33,6 +33,7 @@
   border-radius: 0.25rem;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
@@ -95,6 +96,7 @@ label {
   margin: .75rem auto;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 }
@@ -151,7 +153,8 @@ label {
   box-sizing: border-box;
 }
 
-*:after, *:before {
+*:after,
+*:before {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -232,7 +235,7 @@ h1 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  color: #F2D164;
+  color: #f2d164;
   font-weight: 700;
   letter-spacing: 2.5px;
 }
@@ -296,7 +299,6 @@ p.title {
 .replay p {
   font-size: 2.5rem;
   font-weight: 400;
-  letter-spacing: 4px;
   margin-top: 20px;
   margin-bottom: 0px;
 }
@@ -307,6 +309,53 @@ p.title {
   letter-spacing: 1px;
   margin-top: 1.4rem;
   margin-bottom: 1.4rem;
+}
+
+@-webkit-keyframes animLetters {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.6);
+            transform: scale(1.6);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes animLetters {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.6);
+            transform: scale(1.6);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.word-answer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.letters-replay {
+  margin-right: 4px;
+  -webkit-animation: animLetters 0.9s ease-in-out;
+          animation: animLetters 0.9s ease-in-out;
 }
 
 .flip-card {
@@ -321,6 +370,7 @@ p.title {
   position: relative;
   height: 100%;
   -webkit-transition: all 1s;
+  -o-transition: all 1s;
   transition: all 1s;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -352,6 +402,7 @@ p.title {
   -webkit-filter: brightness(80%);
           filter: brightness(80%);
   -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   background-image: url("../img/qmark.png");
 }
@@ -368,6 +419,7 @@ p.title {
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
   -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
@@ -413,8 +465,10 @@ p.title {
 @media all and (max-width: 390px) {
   .replay p {
     font-size: 1.8rem;
-    font-weight: 600;
     letter-spacing: 1px;
+  }
+  .replay .letters-replay {
+    margin-right: 1px;
   }
   .replay .h4 {
     font-size: 1.2rem;

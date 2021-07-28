@@ -103,7 +103,7 @@ function CardPlay() {
   useEffect(() => {
     // console.log("RANDOMdraw useEffect");
     randomDraw(repeatNo, photoGroup[`${topic}`]);
-  }, [topic, repeatNo]);
+  }, [start, topic, repeatNo]);
 
   useEffect(() => {
     // console.log("centerLastRow CALLED!");
@@ -274,29 +274,41 @@ function CardPlay() {
     );
   };
 
+  const wordAnswer = useCallback(
+    (word) => {
+      // console.log("wordAnswer Fn");
+      const divLetter = [...word].map((letter, ind) => (
+        <p
+          className="letters-replay"
+          key={ind}
+          style={{ animationDelay: `${0.15 * ind}s` }}
+        >
+          {letter}
+        </p>
+      ));
+      return <div className="word-answer">{divLetter}</div>;
+    },
+    [start, finished, topic]
+  );
+
   const replayMsg = useMemo(() => {
     if (finished === true) {
       // console.log("replayMsg");
       return (
         <div className="replay">
-          {turn === newPhotoArray.length / 2 ? (
-            <p>Wow! Excellent!</p>
-          ) : turn === newPhotoArray.length / 2 + newPhotoArray.length / 6 ? (
-            <p>Fantastic!</p>
-          ) : turn <=
-            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 2 ? (
-            <p>Wonderful!</p>
-          ) : turn <=
-            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 4 ? (
-            <p>Congratulations!</p>
-          ) : turn <=
-            newPhotoArray.length / 2 + newPhotoArray.length / 6 + 8 ? (
-            <p>Good!</p>
-          ) : turn >= (newPhotoArray.length / 2) * 3 ? (
-            <p>Yeah! Keep training!</p>
-          ) : (
-            <p>Quite well!</p>
-          )}
+          {turn === newPhotoArray.length / 2
+            ? wordAnswer("Wow!\u00A0\u00A0Excellent!")
+            : turn === newPhotoArray.length / 2 + newPhotoArray.length / 6
+            ? wordAnswer("Fantastic!")
+            : turn <= newPhotoArray.length / 2 + newPhotoArray.length / 6 + 2
+            ? wordAnswer("Wonderful!")
+            : turn <= newPhotoArray.length / 2 + newPhotoArray.length / 6 + 4
+            ? wordAnswer("Congratulations!")
+            : turn <= newPhotoArray.length / 2 + newPhotoArray.length / 6 + 8
+            ? wordAnswer("Good!")
+            : turn >= (newPhotoArray.length / 2) * 3
+            ? wordAnswer("Keep\u00A0\u00A0training!")
+            : wordAnswer("Quite\u00A0\u00A0well!")}
           <p className="h4">You've won in {turn} turns!</p>
           <button className="btn btn-secondary" onClick={refresh}>
             One more time?
@@ -352,10 +364,14 @@ function CardPlay() {
       </div>
     </div>
   );
+  const getMainTitle = useMemo(() => {
+    // console.log("getMainTitle Fn");
+    return wordAnswer("MEMORY\u00A0\u00A0CARDS");
+  }, []);
 
   return (
     <div className="main-container">
-      <header className="head">MEMORY CARDS</header>
+      <header className="head">{getMainTitle}</header>
       <div className="container">
         <div className="board" ref={boardRef}>
           {finished && !start ? (

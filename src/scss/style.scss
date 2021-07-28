@@ -7,13 +7,16 @@
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box; }
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-*:after, *:before {
+*:after,
+*:before {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box; }
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -83,7 +86,7 @@ h1 {
   justify-self: center;
   align-self: center;
   // color: rgb(212, 206, 112);
-  color: #F2D164;
+  color: #f2d164;
   font-weight: 700;
   letter-spacing: 2.5px;
 }
@@ -134,7 +137,7 @@ p.title {
   p {
     font-size: 2.5rem;
     font-weight: 400;
-    letter-spacing: 4px;
+    // letter-spacing: 4px;
     margin-top: 20px;
     margin-bottom: 0px;
   }
@@ -146,6 +149,30 @@ p.title {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
   }
+}
+
+@keyframes animLetters {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.6);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.word-answer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.letters-replay {
+  margin-right: 4px;
+  animation: animLetters 0.9s ease-in-out;
 }
 
 .flip-card {
@@ -210,7 +237,7 @@ p.title {
 }
 
 //   @media screen and (min-width: 1157px) {
-@media only screen and (max-width: 1536px)  and (min-width: 1013px) {
+@media only screen and (max-width: 1536px) and (min-width: 1013px) {
   .board {
     grid-template-columns: repeat(6, minmax(135px, 1fr));
   }
@@ -234,7 +261,6 @@ p.title {
 }
 
 @media only screen and (max-width: 1012px) and (min-width: 625px) {
-
   // keep the two tiles in the last row, in "HARD" level, in the middle of the row
   .hard:last-child {
     grid-column: -3 / -2;
@@ -246,12 +272,13 @@ p.title {
 }
 
 @media all and (max-width: 390px) {
-
   .replay {
     p {
       font-size: 1.8rem;
-      font-weight: 600;
       letter-spacing: 1px;
+    }
+    .letters-replay {
+      margin-right: 1px;
     }
     .h4 {
       font-size: 1.2rem;
@@ -259,11 +286,9 @@ p.title {
   }
 }
 
-@media all and (max-width: 812px) { 
-
+@media all and (max-width: 812px) {
   .flip-card {
     width: 115px;
     height: 115px;
   }
-
 }
