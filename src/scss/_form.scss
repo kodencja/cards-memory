@@ -1,78 +1,89 @@
 .form {
-display: flex;
-flex-wrap: wrap;
-justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .form-group {
-    margin: .5rem 1.25rem;
+  margin: 0.5rem 1.25rem;
+  overflow: hidden;
+}
+
+label {
+  color: #f2d164;
+  text-align: center;
+}
+
+.topic {
+  transition: all 1s ease-out;
+}
+
+.level {
+  transition: all 1s ease-out;
+}
+
+.submit {
+  transition: all 0.75s ease-out;
+}
+
+.form-control {
+  display: block;
+  width: 125px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  margin: 0.75rem auto;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
   }
-  
-  label {
-    color: #F2D164;
-    text-align: center;
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #495057;
   }
-  
-  .form-control {
-    display: block;
-    width: 125px;
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.5;
+
+  &:focus {
     color: #495057;
     background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    margin: .75rem auto;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-    &::-ms-expand {
-      background-color: transparent;
-      border: 0;
-    }
-    
-    &:-moz-focusring {
-      color: transparent;
-      text-shadow: 0 0 0 #495057;
-    }
-    
-    &:focus {
-      color: #495057;
-      background-color: #fff;
-      border-color: #80bdff;
-      outline: 0;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-    }
-    
-    &::-webkit-input-placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-    
-    &::-moz-placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-    
-    &:-ms-input-placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-    
-    &::-ms-input-placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-    
-    &::placeholder {
-      color: #6c757d;
-      opacity: 1;
-    }
-
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
-  
-  .form-control-lg {
-    padding: 0.5rem 0.5rem !important;
+
+  &::-webkit-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
   }
-  
+
+  &::-moz-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  &::-ms-input-placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+
+  &::placeholder {
+    color: #6c757d;
+    opacity: 1;
+  }
+}
+
+.form-control-lg {
+  padding: 0.5rem 0.5rem !important;
+}

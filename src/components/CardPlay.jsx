@@ -52,6 +52,7 @@ const initState = {
   finished: false,
   turn: 0,
   drawn: false,
+  settingsShow: false,
 };
 
 const reducer = (state, action) => {
@@ -70,6 +71,8 @@ const reducer = (state, action) => {
       return { ...state, topic: action.value };
     case "drawn":
       return { ...state, drawn: action.value };
+    case "settingsShow":
+      return { ...state, settingsShow: action.value };
     case "reset":
       return {
         ...state,
@@ -90,15 +93,25 @@ function CardPlay() {
   const [newPhotoArray, randomDraw] = useDrawWithSetRepeating(
     photoGroup["fruits"]
   );
-  const boardRef = useRef();
-  const cardsRef = useRef([]);
+
   const oneVisible = useRef(false);
   const displayedCards = useRef([]);
   const noOfClickedCards = useRef(0);
 
+  // refs to some divs
+  const boardRef = useRef();
+  const cardsRef = useRef([]);
+  const settingsRef = useRef();
+  const settingsTitleRef = useRef();
+  const formRef = useRef();
+  const topicRef = useRef();
+  const levelRef = useRef();
+  const btnSubmitRef = useRef();
+
   const pairsLeft = useRef(6);
 
-  const { turn, topic, repeatNo, start, finished } = state;
+  // destructuring the state props
+  const { turn, topic, repeatNo, start, finished, settingsShow } = state;
 
   useEffect(() => {
     // console.log("RANDOMdraw useEffect");
@@ -108,15 +121,30 @@ function CardPlay() {
   useEffect(() => {
     // console.log("centerLastRow CALLED!");
     if (start === true) {
-      // console.log("centerLastRow drawn === true!");
       centerLastRow();
     }
   }, [start]);
+
+  // listener to animate form elements to display them step by step
+  useEffect(() => {
+    if (settingsShow === true) {
+      settingsTitleRef.current.classList.remove("hide-up");
+      setTimeout(() => {
+        topicRef.current.classList.remove("hide-left");
+        levelRef.current.classList.remove("hide-right");
+        setTimeout(() => {
+          btnSubmitRef.current.classList.remove("hide-down");
+          dispatch({ type: "settingsShow", value: false });
+        }, 750);
+      }, 750);
+    }
+  }, [settingsShow]);
 
   const refresh = (e) => {
     // console.log("Refresh Fn");
     e.preventDefault();
     pairsLeft.current = 6;
+    dispatch({ type: "settingsShow", value: true });
     dispatch({ type: "reset" });
   };
 
@@ -148,6 +176,47 @@ function CardPlay() {
       }
     },
     [cardsRef]
+  );
+
+  // animation for the main title
+  const headTitleStart = useCallback(
+    (word) => {
+      // console.log("wordAnswer Fn");
+      const divLetters = [...word].map((letter, ind) => (
+        <p
+          className={"letters letters-rotate"}
+          key={ind}
+          style={{ animationDelay: `${0.2 * (ind + 1)}s` }}
+        >
+          {letter}
+        </p>
+      ));
+      setTimeout(() => {
+        if (!settingsShow) {
+          dispatch({ type: "settingsShow", value: true });
+        }
+      }, 200 * (word.length - 1) + 1500);
+      return <div className="head-title">{divLetters}</div>;
+    },
+    [start]
+  );
+
+  // animation for words displayed after the game is over
+  const wordAnswer = useCallback(
+    (word) => {
+      // console.log("wordAnswer Fn");
+      const divLetters = [...word].map((letter, ind) => (
+        <p
+          className={"letters letters-replay"}
+          key={ind}
+          style={{ animationDelay: `${0.15 * ind}s` }}
+        >
+          {letter}
+        </p>
+      ));
+      return <div className="word-answer">{divLetters}</div>;
+    },
+    [start, finished, topic]
   );
 
   const hideCards = (arrOfRevealedCards) => {
@@ -274,23 +343,6 @@ function CardPlay() {
     );
   };
 
-  const wordAnswer = useCallback(
-    (word) => {
-      // console.log("wordAnswer Fn");
-      const divLetter = [...word].map((letter, ind) => (
-        <p
-          className="letters-replay"
-          key={ind}
-          style={{ animationDelay: `${0.15 * ind}s` }}
-        >
-          {letter}
-        </p>
-      ));
-      return <div className="word-answer">{divLetter}</div>;
-    },
-    [start, finished, topic]
-  );
-
   const replayMsg = useMemo(() => {
     if (finished === true) {
       // console.log("replayMsg");
@@ -319,11 +371,13 @@ function CardPlay() {
   }, [finished]);
 
   const settings = (
-    <div className="settings">
-      <div className="form-group">
-        <p className="title">SETTINGS</p>
-        <form className="form">
-          <div className="topic form-group">
+    <div className="settings" ref={settingsRef}>
+      <div className="form-grouping">
+        <p className="title-settings hide-up" ref={settingsTitleRef}>
+          SETTINGS
+        </p>
+        <form className="form" ref={formRef}>
+          <div className="topic form-group hide-left" ref={topicRef}>
             <label htmlFor="topic">Topic</label>
             <select
               id="topic"
@@ -339,7 +393,7 @@ function CardPlay() {
             </select>
           </div>
 
-          <div className="level form-group">
+          <div className="level form-group hide-right" ref={levelRef}>
             <label htmlFor="level">Level</label>
             <select
               id="level"
@@ -355,8 +409,9 @@ function CardPlay() {
           </div>
         </form>
         <button
-          className="btn btn-secondary"
+          className="btn btn-secondary submit hide-down"
           type="submit"
+          ref={btnSubmitRef}
           onClick={handleSubmit}
         >
           Confirm
@@ -364,9 +419,10 @@ function CardPlay() {
       </div>
     </div>
   );
+
   const getMainTitle = useMemo(() => {
     // console.log("getMainTitle Fn");
-    return wordAnswer("MEMORY\u00A0\u00A0CARDS");
+    return headTitleStart("\u00A0MEMORY\u00A0CARDS");
   }, []);
 
   return (

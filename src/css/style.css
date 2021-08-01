@@ -74,12 +74,31 @@
 }
 
 .form-group {
-  margin: .5rem 1.25rem;
+  margin: 0.5rem 1.25rem;
+  overflow: hidden;
 }
 
 label {
-  color: #F2D164;
+  color: #f2d164;
   text-align: center;
+}
+
+.topic {
+  -webkit-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.level {
+  -webkit-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+}
+
+.submit {
+  -webkit-transition: all 0.75s ease-out;
+  -o-transition: all 0.75s ease-out;
+  transition: all 0.75s ease-out;
 }
 
 .form-control {
@@ -93,7 +112,7 @@ label {
   background-clip: padding-box;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  margin: .75rem auto;
+  margin: 0.75rem auto;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -237,7 +256,11 @@ h1 {
       align-self: center;
   color: #f2d164;
   font-weight: 700;
-  letter-spacing: 2.5px;
+}
+
+.head-title {
+  font-size: 2.3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .board {
@@ -259,9 +282,36 @@ h1 {
   grid-area: foot;
 }
 
-p.title {
+.title-settings {
   font-size: 2rem;
   font-weight: 700;
+  -webkit-transition: all 0.75s ease-out;
+  -o-transition: all 0.75s ease-out;
+  transition: all 0.75s ease-out;
+}
+
+.hide-up {
+  -webkit-transform: translateY(-200%);
+      -ms-transform: translateY(-200%);
+          transform: translateY(-200%);
+}
+
+.hide-down {
+  -webkit-transform: translateY(200%);
+      -ms-transform: translateY(200%);
+          transform: translateY(200%);
+}
+
+.hide-right {
+  -webkit-transform: translateX(200%);
+      -ms-transform: translateX(200%);
+          transform: translateX(200%);
+}
+
+.hide-left {
+  -webkit-transform: translateX(-200%);
+      -ms-transform: translateX(-200%);
+          transform: translateX(-200%);
 }
 
 .score {
@@ -285,6 +335,7 @@ p.title {
   -ms-grid-column-align: center;
       justify-self: center;
   grid-column: 2 / -2;
+  overflow: hidden;
 }
 
 .replay {
@@ -341,7 +392,44 @@ p.title {
   }
 }
 
-.word-answer {
+@-webkit-keyframes animRotate {
+  0% {
+    -webkit-transform: scale(1) rotateY(180deg);
+            transform: scale(1) rotateY(180deg);
+    opacity: 0.35;
+  }
+  50% {
+    -webkit-transform: scale(1.6) rotateY(0deg);
+            transform: scale(1.6) rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(0deg);
+            transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes animRotate {
+  0% {
+    -webkit-transform: scale(1) rotateY(180deg);
+            transform: scale(1) rotateY(180deg);
+    opacity: 0.35;
+  }
+  50% {
+    -webkit-transform: scale(1.6) rotateY(0deg);
+            transform: scale(1.6) rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1) rotateY(0deg);
+            transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.word-answer,
+.head-title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -350,12 +438,24 @@ p.title {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transform: perspective(700px);
+          transform: perspective(700px);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 .letters-replay {
-  margin-right: 4px;
-  -webkit-animation: animLetters 0.9s ease-in-out;
-          animation: animLetters 0.9s ease-in-out;
+  -webkit-animation: animLetters 0.9s ease-in-out forwards;
+          animation: animLetters 0.9s ease-in-out forwards;
+}
+
+.letters-rotate {
+  -webkit-animation: animRotate 1.5s ease-in-out backwards;
+          animation: animRotate 1.5s ease-in-out backwards;
+}
+
+.letters {
+  margin-right: 5px;
 }
 
 .flip-card {
@@ -479,5 +579,24 @@ p.title {
   .flip-card {
     width: 115px;
     height: 115px;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .head-title {
+    font-size: 1.9rem;
+  }
+}
+
+@media all and (max-width: 300px) {
+  .head-title {
+    font-size: 1.8rem;
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+  .letters {
+    margin-right: 3px;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
   }
 }
